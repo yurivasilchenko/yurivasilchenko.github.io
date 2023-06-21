@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aim Trainer</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+</head>
+<body>
+<div id="game-container">
+
+    <button id="start-button">Start</button>
+    <div id="target1" class="target" data-clicked="false" data-timer-id="" style="display: none"></div>
+    <div id="target2" class="target" data-clicked="false" data-timer-id="" style="display: none"></div>
+    <div id="target3" class="target" data-clicked="false" data-timer-id="" style="display: none"></div>
+    <div id="target4" class="target" data-clicked="false" data-timer-id="" style="display: none"></div>
+
+
+    <div id="score-container" style="display: none;">
+        <p>Final Score : <span id="final-score"></span></p>
+        <button id="retry-button">Retry</button>
+    </div>
+</div>
+
+<div>
+    <p id="timer">Time: <span id="time-remaining">60</span> </p>
+    <p id="score">Score: <span id="current-score">0</span> </p>
+</div>
+
+<script src=index.js></script>
+</body>
+</html>

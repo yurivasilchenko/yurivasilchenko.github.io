@@ -1,0 +1,51 @@
+#game-container {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    background-color: #e0e0e0;
+    border: 1px solid #000;
+    cursor: crosshair;
+
+
+
+}
+
+#start-button{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+
+}
+
+.target {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-image: url("https://img.favpng.com/13/16/7/bullseye-computer-icons-font-awesome-shooting-target-png-favpng-LQW94ceyXaUG8aDiXbE79hBsd.jpg");
+    background-size: cover;
+    border: none;
+}
+
+#timer, #score {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#retry-button {
+    margin-top: 10px;
+    cursor: pointer;
+}
