@@ -1,13 +1,17 @@
 #game-container {
     position: relative;
-    width: 400px;
-    height: 300px;
+    width: 800px;
+    height: 500px;
     background-color: #e0e0e0;
     border: 1px solid #000;
     cursor: crosshair;
 
 
 
+}
+button {
+    height: 50px;
+    width: 100px;
 }
 
 #start-button{
