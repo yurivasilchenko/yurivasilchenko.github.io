@@ -43,7 +43,7 @@ function repositionTarget(target) {
     const maxX = containerWidth - target.offsetWidth;
     const maxY = containerHeight - target.offsetHeight;
 
-    const moveAmount = 2; // We can adjust movement speed
+    const moveAmount = 200; // We can adjust movement speed
 
     let currentX = Math.floor(Math.random() * maxX);
     let currentY = Math.floor(Math.random() * maxY);
@@ -59,9 +59,15 @@ function repositionTarget(target) {
     let scale = 0;
     let isGrowing = true;
 
+    let lastFrameTime = performance.now();
+
     function animate() {
-        currentX += moveX;
-        currentY += moveY;
+        const currentTime = performance.now();
+        const deltaTime = (currentTime - lastFrameTime) / 1000; // Convert milliseconds to seconds
+        lastFrameTime = currentTime;
+
+        currentX += moveX * deltaTime;
+        currentY += moveY * deltaTime;
 
         // checks if the target has reached the boundaries of the game container and reverses the movement direction if necessary.
         if (currentX <= 0 || currentX >= maxX) {
@@ -96,7 +102,7 @@ function repositionTarget(target) {
 
     target.animationFrameId = requestAnimationFrame(animate);
 
-    target.addEventListener('click', incrementScore); // Reattach click event listener
+    target.addEventListener('mousedown', incrementScore); // Reattach click event listener
 }
 
 //startGame removes start button
@@ -110,7 +116,7 @@ function startGame() {
 
     targets.forEach(target => {
         target.style.display = 'block';
-        target.addEventListener('click', incrementScore);
+        target.addEventListener('mousedown', incrementScore);
         repositionTarget(target);
         targetClickTimes.set(target, Date.now());
     });
@@ -152,7 +158,7 @@ function countDown() {
     if (remainingTime === 0) {
         targets.forEach(target => {
             target.style.display = 'block';
-            target.removeEventListener('click', incrementScore);
+            target.removeEventListener('mousedown', incrementScore);
 
         });
         clearInterval(countdownInterval);
