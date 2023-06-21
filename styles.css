@@ -1,26 +1,72 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+    padding: 10px;
+}
+
+.header-left {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: monospace;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.header-left img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.header-right ul {
+    margin-right: 20px;
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.header-right li {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: monospace;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* Body Styles */
+
+.app {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 #game-container {
     position: relative;
-    width: 800px;
+    width: 100%;
+    max-width: 800px;
     height: 500px;
     background-color: #e0e0e0;
     border: 1px solid #000;
     cursor: crosshair;
-
-
-
-}
-button {
-    height: 50px;
-    width: 100px;
 }
 
-#start-button{
+#start-button {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: monospace;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     cursor: pointer;
-
 }
 
 .target {
@@ -33,7 +79,8 @@ button {
     border: none;
 }
 
-#timer, #score {
+#timer,
+#score {
     font-size: 20px;
     font-weight: bold;
 }
@@ -49,7 +96,44 @@ button {
     transform: translate(-50%, -50%);
 }
 
+.game-stats {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: monospace;
+}
+
 #retry-button {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: monospace;
     margin-top: 10px;
     cursor: pointer;
+}
+
+/* Media Queries */
+
+@media screen and (max-width: 768px) {
+    .header-left,
+    .header-right {
+        display: none;
+    }
+
+    .header {
+        justify-content: center;
+    }
+
+    .header h1 {
+        margin: 0;
+    }
+
+    #game-container,
+    .app {
+        width: 100%;
+        max-width: none;
+    }
 }
