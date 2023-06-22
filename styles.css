@@ -219,8 +219,12 @@ body{
     width : 10%;
     padding: 10px;
 }
+#target-div{
+    width : 20%;
+    padding: 10px;
+}
 #date-div{
-    width : 15%;
+    width : 25%;
     padding: 10px;
 }
 #score-list li::before {

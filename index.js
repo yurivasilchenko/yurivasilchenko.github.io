@@ -12,7 +12,7 @@ const scoreContainer = document.getElementById('score-container')
 let targetArray = Array.from(targets);
 
 let score = 0;
-let remainingTime = 60;
+let remainingTime = 5;
 let isGameStarted = false;
 let countdownInterval;
 
@@ -33,7 +33,6 @@ function incrementScore(event) {
     if (targetArray.includes(clickedTarget)) {
 
         score++;
-        console.log(clickedTarget)
         currentScore.textContent = score.toString();
         repositionTarget(clickedTarget);
 
@@ -147,6 +146,7 @@ function endGame() {
 
     const currentScore = {
         hits: score,
+        targets: targets.length,
         timestamp: Date.now()
     };
     saveScore(currentScore);
@@ -158,7 +158,7 @@ function endGame() {
 
 function restartGame() {
     score = 0;
-    remainingTime = 60;
+    remainingTime = 5;
     finalScore.textContent = '';
     startButton.style.display = 'block';
 
@@ -294,7 +294,7 @@ increaseTargetsBtn.addEventListener('click', increaseTargets);
 let scores = JSON.parse(localStorage.getItem('scores')) || [];
 
 // Function to save the score
-function saveScore(score) {
+function saveScore(score, targets) {
     scores.push(score);
     scores.sort((a, b) => b.hits - a.hits); // Sort scores in descending order
     localStorage.setItem('scores', JSON.stringify(scores));
@@ -303,6 +303,7 @@ function saveScore(score) {
 // Function to display the top scores
 function displayTopScores() {
     const scoreList = document.getElementById('score-list');
+
     scoreList.innerHTML = ''; // Clear the existing list
 
     scores.slice(0, 10).forEach((score, index) => {
@@ -310,12 +311,17 @@ function displayTopScores() {
 
         const scoreDiv = document.createElement('div');
         scoreDiv.textContent = `Hits: ${score.hits}`;
-        scoreDiv.id = 'score-div'; // Assign the id "score-div"
+        scoreDiv.id = 'score-div';
         listItem.appendChild(scoreDiv);
+
+        const targetDiv = document.createElement('div');
+        targetDiv.textContent = `Targets amount: ${score.targets}`;
+        targetDiv.id = 'target-div';
+        listItem.appendChild(targetDiv);
 
         const dateDiv = document.createElement('div');
         dateDiv.textContent = getFormattedDate(score.timestamp);
-        dateDiv.id = 'date-div'; // Assign the id "date-div"
+        dateDiv.id = 'date-div';
         listItem.appendChild(dateDiv);
 
         scoreList.appendChild(listItem);
