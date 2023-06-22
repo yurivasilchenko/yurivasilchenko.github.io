@@ -12,7 +12,7 @@ const scoreContainer = document.getElementById('score-container')
 let targetArray = Array.from(targets);
 
 let score = 0;
-let remainingTime = 5;
+let remainingTime = 60;
 let isGameStarted = false;
 let countdownInterval;
 
@@ -158,7 +158,7 @@ function endGame() {
 
 function restartGame() {
     score = 0;
-    remainingTime = 5;
+    remainingTime = 60;
     finalScore.textContent = '';
     startButton.style.display = 'block';
 
