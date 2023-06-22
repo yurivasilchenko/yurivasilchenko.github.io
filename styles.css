@@ -4,6 +4,8 @@
     justify-content: space-between;
     background-color: #f0f0f0;
     padding: 10px;
+
+
 }
 
 .header-left {
@@ -11,9 +13,12 @@
     font-weight: 400;
     line-height: 1.5;
     font-family: monospace;
-    margin-left: 20px;
+    margin-left: 15%;
     display: flex;
     align-items: center;
+}
+.header-right{
+    margin-right: 15%;
 }
 
 .header-left img {
@@ -23,7 +28,7 @@
 }
 
 .header-right ul {
-    margin-right: 20px;
+    margin-right: 15px;
     display: flex;
     list-style: none;
     padding: 0;
@@ -34,7 +39,7 @@
     font-weight: 400;
     line-height: 1.5;
     font-family: monospace;
-    margin-left: 10px;
+    margin-right: 15px;
     cursor: pointer;
 }
 
@@ -42,9 +47,10 @@
 
 .app {
     width: 100%;
-    max-width: 800px;
     margin: 0 auto;
-    padding: 20px;
+}
+body{
+    margin: 0;
 }
 
 #game-container {
@@ -55,6 +61,8 @@
     background-color: #e0e0e0;
     border: 1px solid #000;
     cursor: crosshair;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #start-button {
@@ -136,4 +144,55 @@
         width: 100%;
         max-width: none;
     }
+}
+
+/* Footer styles*/
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin-top: auto;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+
+}
+
+.footer-left {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: monospace;
+    margin-left: 15%;
+    display: flex;
+    align-items: center;
+}
+.footer-right{
+    margin-right: 15%;
+}
+
+.footer-left img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.footer-right ul {
+    margin-right: 15px;
+    display: flex;
+    list-style: none;
+    padding: 0;
+}
+
+.footer-right li {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: monospace;
+    margin-right: 15px;
+    cursor: pointer;
 }

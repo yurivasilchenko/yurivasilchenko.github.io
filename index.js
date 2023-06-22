@@ -61,6 +61,10 @@ function repositionTarget(target) {
 
     let lastFrameTime = performance.now();
 
+    const growthDuration = 2; // Duration for target growth in seconds
+    const shrinkDuration = 2; // Duration for target shrink in seconds
+
+
     function animate() {
         const currentTime = performance.now();
         const deltaTime = (currentTime - lastFrameTime) / 1000; // Convert milliseconds to seconds
@@ -79,13 +83,13 @@ function repositionTarget(target) {
         }
 
         if (isGrowing) {
-            scale += 0.009; // Increase the scale by 0.009 every frame
+            scale += deltaTime / growthDuration; // Increase the scale based on the target duration for growth
             if (scale >= 1) {
                 // Once the scale reaches 1, start decreasing
                 isGrowing = false;
             }
         } else {
-            scale -= 0.009; // Decrease the scale by 0.009 every frame
+            scale -= deltaTime / shrinkDuration; // Decrease the scale based on the target duration for shrink
             if (scale <= 0) {
                 // Reset target position and scale
                 return;
