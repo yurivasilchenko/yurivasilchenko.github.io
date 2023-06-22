@@ -146,6 +146,45 @@ body{
     }
 }
 
+/* amount of targets styles */
+
+#target-controls{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    font-family: monospace;
+    margin: 10px 30%;
+
+}
+
+#target-amount,
+#target-scale {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+#target-scale{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#decrease-targets,
+#increase-targets {
+    margin: 5px;
+}
+
+.arrow{
+    outline: none;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
 /* Footer styles*/
 
 footer {
