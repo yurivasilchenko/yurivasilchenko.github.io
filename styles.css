@@ -63,6 +63,7 @@ body{
     cursor: crosshair;
     margin-left: auto;
     margin-right: auto;
+    overflow: hidden;
 }
 
 #start-button {

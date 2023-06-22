@@ -137,6 +137,8 @@ function startGame() {
 // endGame function shows score container and removes targets
 function endGame() {
     isGameStarted = false;
+
+
     finalScore.textContent = score.toString();
     targets.forEach(target => {
         target.style.display = 'none';
@@ -157,6 +159,7 @@ function endGame() {
 }
 
 function restartGame() {
+    currentScore.textContent ='0'
     score = 0;
     remainingTime = 60;
     finalScore.textContent = '';
