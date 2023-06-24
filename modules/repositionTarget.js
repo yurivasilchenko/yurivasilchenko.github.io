@@ -63,11 +63,9 @@ export function repositionTarget(target) {
         target.style.left = `${currentX}px`;
         target.style.top = `${currentY}px`;
         target.style.transform = `scale(${scale})`;
-
         target.animationFrameId = requestAnimationFrame(animate);
     }
 
     target.animationFrameId = requestAnimationFrame(animate);
-
     target.addEventListener('mousedown', incrementScore); // Reattach click event listener
 }

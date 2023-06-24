@@ -49,18 +49,17 @@ export function getRandomImage() {
 }
 export function startGame() {
 
-    console.log(timeRemaining)
     if (isGameStarted) {
         return;
     }
-
-
+//new commit
     isGameStarted = true;
     startButton.style.display = 'none';
     targets = Array.from(document.getElementsByClassName('target'));
+    targetArray = Array.from(targets);
+
 
     targets.forEach(target => {
-        console.log(target)
 
         target.style.display = 'block';
         const imageUrl = getRandomImage();
@@ -69,8 +68,6 @@ export function startGame() {
         repositionTarget(target);
         targetClickTimes.set(target, Date.now());
     });
-
-    console.log(targets)
 
     countdownInterval = setInterval(countDown, 1000);
 }
@@ -99,7 +96,6 @@ export function endGame() {
 }
 
 export function restartGame() {
-    console.log(remainingTime)
     score = 0;
     remainingTime = 60;
     currentScore.textContent ='0'

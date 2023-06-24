@@ -38,6 +38,7 @@ export function increaseTargets() {
             target.addEventListener('mousedown', incrementScore); // Attach the event listener
             repositionTarget(target);
         });
+
     }
 }
 
@@ -60,7 +61,6 @@ export function decreaseTargets() {
 
         }
         targets = Array.from(document.getElementsByClassName('target'));
-        console.log(targets)
     }
 
 }
