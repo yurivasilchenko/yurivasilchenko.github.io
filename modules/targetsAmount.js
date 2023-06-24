@@ -1,4 +1,4 @@
-import {incrementScore, isGameStarted} from "./gameLogic.js";
+import {incrementScore, isGameStarted, getRandomImage} from "./gameLogic.js";
 import {repositionTarget} from "./repositionTarget.js";
 
 const decreaseTargetsBtn = document.getElementById('decrease-targets');
@@ -26,11 +26,12 @@ export function increaseTargets() {
         newTarget.dataset.clicked = 'false';
         newTarget.dataset.timerId = '';
         newTarget.style.display = 'none';
+        const imageUrl = getRandomImage();
+        newTarget.style.backgroundImage = `url("${imageUrl}")`;
         gameContainer.appendChild(newTarget);
 
         targets = Array.from(document.getElementsByClassName('target')); // Update targets array
         targetArray = Array.from(targets); // Update targetArray
-        console.log(targets)
 
         // Call repositionTarget for each newly added target
         targets.slice(-1 * (numTargets - targetDivs.length)).forEach(target => {

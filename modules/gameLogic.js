@@ -57,8 +57,10 @@ export function startGame() {
 
     isGameStarted = true;
     startButton.style.display = 'none';
+    targets = Array.from(document.getElementsByClassName('target'));
 
     targets.forEach(target => {
+        console.log(target)
 
         target.style.display = 'block';
         const imageUrl = getRandomImage();
@@ -67,7 +69,8 @@ export function startGame() {
         repositionTarget(target);
         targetClickTimes.set(target, Date.now());
     });
-    targets = Array.from(document.getElementsByClassName('target'));
+
+    console.log(targets)
 
     countdownInterval = setInterval(countDown, 1000);
 }
@@ -123,7 +126,6 @@ function countDown() {
 
     remainingTime--;
     timeRemaining.textContent = remainingTime.toString();
-    console.log(remainingTime)
 
 
     if (remainingTime === 0) {
