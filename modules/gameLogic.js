@@ -89,7 +89,7 @@ export function restartGame() {
     currentScore.textContent ='0'
     timeRemaining.textContent = `${remainingTime}`
     finalScore.textContent = '';
-    startButton.style.display = 'block';
+    startButton.style.display = 'flex';
 
     targets.forEach(target => {
         target.style.display = 'none'; // Hide each target
