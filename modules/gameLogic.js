@@ -10,6 +10,11 @@ const startButton = document.getElementById('start-button');
 const retryButton = document.getElementById('retry-button');
 
 let targets = Array.from(document.getElementsByClassName('target'));
+const images = [
+    'img/target_new_pink.jpg',
+    'img/target_new_blue.jpg',
+    'img/target_new_white.jpg'
+];
 let score = 0;
 let remainingTime = 60;
 let countdownInterval;
@@ -38,11 +43,17 @@ export function incrementScore(event) {
     targetClickTimes.set(clickedTarget, Date.now());
 
 }
+export function getRandomImage() {
+    const randomIndex = Math.floor(Math.random() * images.length);
+    return images[randomIndex];
+}
 export function startGame() {
+
     console.log(timeRemaining)
     if (isGameStarted) {
         return;
     }
+
 
     isGameStarted = true;
     startButton.style.display = 'none';
@@ -50,6 +61,8 @@ export function startGame() {
     targets.forEach(target => {
 
         target.style.display = 'block';
+        const imageUrl = getRandomImage();
+        target.style.backgroundImage = `url("${imageUrl}")`;
         target.addEventListener('mousedown', incrementScore);
         repositionTarget(target);
         targetClickTimes.set(target, Date.now());
@@ -127,6 +140,8 @@ function countDown() {
         targets.forEach(target => {
             const lastClickTime = targetClickTimes.get(target) || 0;
             if (currentTime - lastClickTime >= 4000 && target.style.display !== 'none') {
+                const imageUrl = getRandomImage();
+                target.style.backgroundImage = `url("${imageUrl}")`;
                 repositionTarget(target);
                 targetClickTimes.set(target, currentTime);
             }
