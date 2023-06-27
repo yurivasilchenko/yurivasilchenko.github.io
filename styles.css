@@ -1,3 +1,6 @@
+*{
+    box-sizing: border-box;
+}
 .header {
     display: flex;
     align-items: center;
@@ -75,6 +78,35 @@ body{
     margin-right: auto;
     overflow: hidden;
 }
+
+#game-expand{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+}
+.expand-button a {
+    color: rgba(46,186,194,255);
+    text-decoration: none;
+}
+.expand-button a:hover {
+    color: #dd2fa9;
+    text-decoration: none;
+}
+
+.expand-button i {
+    font-size: 30px;
+}
+#game-container.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 100;
+    max-width: 100vw;
+}
+
 .game-targets{
     margin-left:25%;
     margin-right: 25%;
@@ -139,6 +171,8 @@ a {
 #retry-button:hover a{
     color: rgba(195,46,129,255);
 }
+
+
 /* Final score */
 
 .target {
@@ -284,15 +318,28 @@ a {
     position: relative;
     width: 100%;
     max-width: 740px;
-    height: 450px;
+    height: 100%;
     background-color: rgba(11,11,11,255);
     border: 1px solid #000;
     margin-left: auto;
     margin-right: auto;
     padding: 30px;
     margin-bottom: 40px;
-
+    overflow-y: auto;
 }
+
+.top-results::-webkit-scrollbar {
+    width: 2px;
+}
+
+.top-results::-webkit-scrollbar-track {
+    background-color: rgba(11,11,11,255);
+}
+
+.top-results::-webkit-scrollbar-thumb {
+   background-color: #dd2fa9;
+}
+
 .top-results h1{
     text-align: center;
     margin: 0 0 16px;
@@ -311,6 +358,9 @@ a {
     width: 100%;
     color: rgba(46,186,194,255);
 
+}
+#score-list li div{
+    width: max-content;
 }
 #score-div{
     width : 10%;

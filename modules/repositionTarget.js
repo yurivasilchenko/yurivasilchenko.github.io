@@ -67,5 +67,5 @@ export function repositionTarget(target) {
     }
 
     target.animationFrameId = requestAnimationFrame(animate);
-    target.addEventListener('mousedown', incrementScore); // Reattach click event listener
+    /*target.addEventListener('mousedown', incrementScore); // Reattach click event listener*/
 }

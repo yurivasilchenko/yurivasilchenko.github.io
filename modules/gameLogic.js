@@ -9,6 +9,7 @@ const timeRemaining = document.getElementById('time-remaining');
 const startButton = document.getElementById('start-button');
 const retryButton = document.getElementById('retry-button');
 
+
 let targets = Array.from(document.getElementsByClassName('target'));
 const images = [
     'img/target_new_pink.jpg',
@@ -25,6 +26,7 @@ const targetClickTimes = new Map();
 
 startButton.addEventListener('click', startGame);
 retryButton.addEventListener('click', restartGame)
+
 
 export function incrementScore(event) {
     if (!isGameStarted) {
@@ -64,12 +66,25 @@ export function startGame() {
         target.style.display = 'block';
         const imageUrl = getRandomImage();
         target.style.backgroundImage = `url("${imageUrl}")`;
-        target.addEventListener('mousedown', incrementScore);
+        /*target.addEventListener('mousedown', incrementScore);*/
+        bindEvents(target);
         repositionTarget(target);
         targetClickTimes.set(target, Date.now());
     });
 
     countdownInterval = setInterval(countDown, 1000);
+}
+
+function bindEvents(target){
+    target.addEventListener('mousedown', incrementScore);
+    target.addEventListener('touchstart', incrementScore);
+    target.addEventListener('click', incrementScore);
+
+}
+function unbindEvents(target){
+    target.removeEventListener('mousedown', incrementScore);
+    target.removeEventListener('touchstart', incrementScore);
+    target.removeEventListener('click', incrementScore);
 }
 
 // endGame function shows score container and removes targets
@@ -128,7 +143,7 @@ function countDown() {
 
         targets.forEach(target => {
             target.style.display = 'block';
-            target.removeEventListener('mousedown', incrementScore);
+            unbindEvents(target);
 
         });
         clearInterval(countdownInterval);
