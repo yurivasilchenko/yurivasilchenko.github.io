@@ -1,4 +1,8 @@
 // Load scores from local storage or initialize an empty array
+const collapseToggle = document.querySelector('.collapse-toggle');
+const topResults = document.querySelector('.top-results');
+const icon = document.querySelector('#top-scores i');
+
 let scores = JSON.parse(localStorage.getItem('scores')) || [];
 export function saveScore(score, targets){
     scores.push(score);
@@ -64,3 +68,10 @@ export function getFormattedDate(timestamp){
         return `${years} year${years > 1 ? 's' : ''} ago`;
     }
 }
+
+collapseToggle.addEventListener('click', function() {
+    topResults.classList.toggle('collapsed');
+
+    icon.classList.toggle('gg-arrows-expand-down-left');
+    icon.classList.toggle('gg-arrows-expand-up-right');
+});

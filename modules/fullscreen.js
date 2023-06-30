@@ -1,11 +1,18 @@
 const gameContainer = document.getElementById('game-container');
 const expandButton = document.getElementById('game-expand');
+const expandIcon = document.querySelector('.expand-button i')
 
 expandButton.addEventListener('click', function() {
+
     if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
         exitFullscreen();
+        expandIcon.classList.remove('fas', 'fa-compress');
+        expandIcon.classList.add('fas', 'fa-expand');
     } else {
         enterFullscreen(gameContainer);
+        expandIcon.classList.remove('fas', 'fa-expand');
+        expandIcon.classList.add('fas', 'fa-compress');
+
     }
 });
 
