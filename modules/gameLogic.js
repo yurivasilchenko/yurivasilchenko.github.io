@@ -41,6 +41,11 @@ export function incrementScore(event) {
         currentScore.textContent = score.toString();
         repositionTarget(clickedTarget);
 
+        const audio = new Audio('sound/pop.mp3');
+        audio.addEventListener('canplaythrough', () => {
+            audio.play();
+        });
+
     }
     targetClickTimes.set(clickedTarget, Date.now());
 
